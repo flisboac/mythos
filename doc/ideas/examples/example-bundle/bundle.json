@@ -1,0 +1,57 @@
+
+{
+    "name": "@example-scope/example-bundle",
+    "description": "An example bundle.",
+    "version": "0.1.0",
+    "keywords": [],
+    "homepage": "https://example-guy.github.com/example-bundle",
+    "bugs": {
+        "url" : "http://github.com/example-guy/example-bundle/issues",
+        "email" : "project@hostname.com"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "example-guy",
+        "email": "guy@example.com",
+        "url": "https://guy.example.com"
+    },
+    "contributors": [],
+    "files": ["."],
+    /*
+    // main... should I include it? Maybe not... but what about a "mains"?
+    // It would make sense if the developer made a promise to provide all
+    // traits, entities and other resources in a single require'd object, but
+    // for that, it'll need the core library support on whatever language is
+    // provided. If the dev doesn't provide a main entry point, the library
+    // can automate the process and generate one, maybe through a specific
+    // require object.
+    // Btw, do languages different from javascript make sense? In fact, do
+    // scripts in the mythos environment make sense?
+    "mains": {
+        "javascript": "main.js",
+        "ruby@>=2": "main.rb"
+    },
+    */
+    "dependencies": {
+        "example-package2": "1.0"
+    },
+    // devDependencies doesn't make much sense
+    "peerDependencies": {
+        
+    },
+    // optionalDependencies may be used, but i'm not sure how
+    "bundledDependencies": {
+        "example-resources": "1.0"
+    },
+    "engines": { // Should be used if custom source code is provided in addition to trait descriptors
+        "node": "~0.10",
+        "javascript": "~5.1",
+        "ruby": "~2"
+    },
+    "engineStrict": false,
+    // os and arch are not needed, really.
+    // preferGlobal doesn't make sense for mythos bundles.
+    "private": false
+    // config and publishConfig could be used, but I'm not sure how.
+    
+}
