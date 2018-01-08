@@ -12,7 +12,7 @@ import { IProperty, IPropertyType } from './property';
 export interface ITraitType extends IType {
 
     id: IId;
-    displayName: IStringBox;
+    description: IStringBox;
     readonly properties: IProperty[];
 
     newProperty<T>(

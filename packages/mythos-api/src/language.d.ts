@@ -3,35 +3,35 @@
  * @internal
  */ /** */
 
-export type LanguageName = string;
+export type ILanguageName = string;
 
 export interface ILanguageAware {
 
-    readonly language: LanguageName;
-    readonly supportedLanguages: LanguageName[];
+    readonly language: ILanguageName;
+    readonly supportedLanguages: ILanguageName[];
 
     /** Queries the object for explicit (as in pre-existent) support for the
      * language `languageName`.
      */
-    hasLanguageSupportFor(langName: LanguageName): boolean;
+    hasLanguageSupportFor(langName: ILanguageName): boolean;
 
     /** Returns `true` if the language-aware object can add support for language
      * `languageName` if it doesn't have support yet (e.g. add new 
      * translations for an entity being edited).
      */
-    canSupportLanguage(langName: LanguageName): boolean;
+    canSupportLanguage(langName: ILanguageName): boolean;
 }
 
 export interface ITranslatable<TranslationType> extends ILanguageAware {
 
     // VIEW INTERFACE
     
-    translate(langName: LanguageName): TranslationType;
+    translate(langName: ILanguageName): TranslationType;
 }
 
 export interface ITranslatableState extends ILanguageAware {
 
     // MUTABLE INTERFACE
 
-    switchLanguageTo(langName: LanguageName): this;
+    switchLanguageTo(langName: ILanguageName): this;
 }

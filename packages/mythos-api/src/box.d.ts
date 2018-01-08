@@ -5,7 +5,7 @@
 
 
 import { IType, IObject } from './object'
-import { ITranslatableState, LanguageName } from './language'
+import { ITranslatableState, ILanguageName } from './language'
 import { ITranslatable } from './language';
 
 
@@ -40,28 +40,3 @@ export interface IBox<RawType> extends IObject {
      */
     reset(): void;
 }
-
-
-export interface IFile {
-
-    name: string;
-    lastModified: Date | null;
-    size: number | null;
-}
-
-export interface IImageFile extends IFile {} // TODO
-
-// TODO All of the types below
-// TODO Create the IValueType classes for each specific rendering case, instead
-// of having specialized IBox types for same raw types
-// Basic
-
-// Extended
-export interface IFileBox<T extends IFile = IFile> extends IBox<T> {}
-export interface IImageBox<T extends IImageFile = IImageFile> extends IBox<T> {}
-export interface IPasswordBox extends IBox<string> {}
-
-// Project-dependent
-// export interface ICalendarDateBox extends IBox<ICalendarDateTime> {}
-// export interface ICalendarTimeBox extends IBox<ICalendarDateTime> {}
-// export interface ICalendarDateTimeBox extends IBox<ICalendarDateTime> {}

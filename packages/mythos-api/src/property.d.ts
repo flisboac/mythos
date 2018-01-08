@@ -16,7 +16,7 @@ export interface IPropertyType<
 > extends IType {
 
     id: IId;
-    displayName: IStringBox;
+    description: IStringBox;
     valueType: IValueType<RawType>;
     defaultValue: IBox<RawType> | undefined;
 }

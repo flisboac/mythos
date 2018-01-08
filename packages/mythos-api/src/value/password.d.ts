@@ -4,3 +4,5 @@
  */ /** */
 
 import { IBox, IValueType } from '../box';
+
+export interface IPasswordBox extends IBox<string> {}
