@@ -1,10 +1,11 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Model Object
  * @internal
  */ /** */
 
 import { IType, INamedProjectComponent, IUuidProjectComponent, IId, ITypeOptions } from './object';
-import { IBox, IStringBox } from './value/index';
+import { IBox } from './box';
+import { IStringBox } from './value/index';
 import { ITrait } from './trait';
 
 

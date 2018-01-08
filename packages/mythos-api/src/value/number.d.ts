@@ -1,9 +1,9 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Value/Number
  * @internal
  */ /** */
 
-import { IBox, IValueType } from './box';
+import { IBox, IValueType } from '../box';
 
 // Renders a spinner
 export interface INumberValueType extends IValueType<number> {

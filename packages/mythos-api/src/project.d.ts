@@ -1,5 +1,5 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Project
  * @internal
  */ /** */
 

@@ -1,11 +1,11 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Connection
  * @internal
  */ /** */
 
 import { IModelType, IModelObject } from './modelObject';
 import { IId } from './object';
-import { IBox } from './value/index';
+import { IBox } from './box';
 import { IEntity } from './entity';
 
 

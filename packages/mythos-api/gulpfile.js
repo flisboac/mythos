@@ -1,15 +1,16 @@
 var gulp = require("gulp");
 var gulpRoot = require('../gulp.root');
 var typedoc = require("gulp-typedoc");
+var debug = require("gulp-debug");
 var gulpHelper = gulpRoot(gulp, {
     packageName: 'mythos-api',
     packageName: 'Mythos API',
     require: require
 });
 
-gulpHelper.allTargets({except: ['build:docs']});
+gulpHelper.allTargets({except: 'build:docs'});
 
 gulp.task("build:docs", () => {
-    return gulp.src("src/index.ts")
+    return gulp.src("./src/**/*.d.ts")
         .pipe(typedoc(gulpHelper.typedocConfig));
 });

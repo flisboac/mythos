@@ -2,7 +2,8 @@
     "extends": "../tsconfig.root.json",
     "compilerOptions": {
         "outFile": "dist/main.js",
-        "moduleResolution": "node"
+        "moduleResolution": "node",
+        "rootDir": "src"
     },
     "exclude": [
         "node_modules",

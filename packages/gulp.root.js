@@ -10,7 +10,7 @@ function gulpPrepare(gulp, options) {
     var gulpsync = require('gulp-sync')(gulp);
     var ts = require("gulp-typescript");
     var typedoc = require("gulp-typedoc");
-    var gulpDebug = require('gulp-debug');
+    var debug = require('gulp-debug');
 
     var tsProject = ts.createProject("tsconfig.json", {traceResolution: true});
 
@@ -61,6 +61,7 @@ function gulpPrepare(gulp, options) {
 
             gulp.task("build:src", function () {
                 return tsProject.src()
+                    .pipe(debug())
                     .pipe(tsProject(ts.reporter.longReporter()))
                     .pipe(gulp.dest("."));
             });

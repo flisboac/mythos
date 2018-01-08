@@ -1,10 +1,10 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Value/
  * @internal
+ * @preferred
  */ /** */
 
 // Language types
-export * from './box';
 export * from './boolean';
 export * from './number';
 export * from './string';

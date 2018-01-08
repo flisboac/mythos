@@ -1,10 +1,10 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Value/String
  * @internal
  */ /** */
 
 import { ITranslatable, ITranslatableState } from '../language';
-import { IBox, IValueType } from './box';
+import { IBox, IValueType } from '../box';
 
 
 // Renders a spinner

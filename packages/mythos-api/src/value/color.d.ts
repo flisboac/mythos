@@ -1,9 +1,9 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Value/Color
  * @internal
  */ /** */
 
-import { IBox, IValueType } from './box';
+import { IBox, IValueType } from '../box';
 
 export interface IColor {
 

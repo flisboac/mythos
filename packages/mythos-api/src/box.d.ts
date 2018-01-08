@@ -1,12 +1,12 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Box
  * @internal
  */ /** */
 
 
-import { IType, IObject } from '../object'
-import { ITranslatableState, LanguageName } from '../language'
-import { ITranslatable } from '../index';
+import { IType, IObject } from './object'
+import { ITranslatableState, LanguageName } from './language'
+import { ITranslatable } from './language';
 
 
 export interface IValueType<

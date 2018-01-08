@@ -1,10 +1,11 @@
 /**
- * @module mythos-api
+ * @module Mythos API/Object
  * @internal
  */ /** */
 
 import { IProject } from './project'
-import { IStringBox, IBox } from './value/index'
+import { IBox } from './box';
+import { IStringBox } from './value/index';
 
 export type IUuid = string;
 export type IId = string;
