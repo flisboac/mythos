@@ -1,0 +1,11 @@
+{
+    "extends": "../tsconfig.root.json",
+    "compilerOptions": {
+        "outFile": "dist/main.js",
+        "moduleResolution": "node"
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
