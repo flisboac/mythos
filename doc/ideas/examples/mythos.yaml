@@ -1,0 +1,97 @@
+
+# Built-in types:
+# - value
+# - trait
+# - entity
+--- !trait
+id: actor
+name: Actor
+brief: Describes an actor.
+description: >
+	(A more detailed description of the document)
+properties:
+	-	id: name
+		name: Name
+		brief: The name of the actor. (will appear on tooltips)
+		brief((pt_BR)): (Breve descrição traduzida! Opcional)
+		description: >
+			(A more detailed description; 
+			will appear on the help context, 
+			e.g. if the tooltip is expanded)
+		value_type: string
+		# Optionally, as a local derived value type with no ID...
+		value_type:
+			supertype: string
+			minimum_size: 1
+			maximum_size: 100
+
+
+# A derived trait
+--- !mythos!trait::actor
+id: hero
+# ...
+
+
+# An entity instance.
+--- !instance::hero
+constructor: instance::hero # Implicit from the YAML tag, mandatory if using JSON
+uuid: SUPERMAN-UUID
+name: Superman
+age: 0
+birthplace: 0
+	
+
+# A derived entity instance
+--- !derived::SUPERMAN-UUID # file: ./entities/superman-prime.yaml
+name: Superman Prime
+# Any other property not changed will remain
+# valued as in the parent instance... EXCEPT for the ID, it always
+# comes from the filename without extension if not specified.
+
+
+--- # file: ./mythos.yaml
+# Main file describes the project itself.
+# At least the following element(s) must be present:
+name: "@example-scope/example-bundle"
+# One of following must be present for the project to not be empty
+# The order is important for dependency resolution (if needed), so be careful!
+paths:
+  # The files found in the following search paths have no guaranteed
+  # ordering, and therefore, cannot be referred by position.
+  # In the app, they'll appear after the non-searched, pre-declared files.
+	- { path: value_types/**/* }
+	- traits/**/*
+	- entity_types/**/*
+	- { path: non_mythos_types/**/*, mode: exclude }
+	- entities/**/*
+files:
+  # The following files will be parsed first, before any other
+  # file that is found in the search paths.
+	- traits/actor.yaml
+	- traits/hero.yaml
+	- { path: traits/non-mythos-file.yaml, mode: exclude }
+	- { path: entities/superman.yaml }
+	- entities/superman-prime.yaml
+# The rest is optional
+lang: en_US # If not given, "en" is assumed
+file_exts: # The following is actually the default
+  json: { format: json }
+  yaml: # implies `{ format: <extension_name> }`
+description: "An example bundle."
+version: "0.1.0"
+keywords: []
+homepage: "https://example-guy.github.com/example-bundle"
+bugs:
+    url: "http://github.com/example-guy/example-bundle/issues"
+    email: "project@hostname.com"
+license: "MIT"
+author:
+    name: "example-guy"
+    email: "guy@example.com"
+    url: "https://guy.example.com"
+contributors: []
+
+# Routing and lookup:
+# * relative URI                   - resource_name
+# * absolute URI (to project root) - /resource_name
+# * absolute URI (to some project) - project_name:/resource_name

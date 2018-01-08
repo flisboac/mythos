@@ -1,0 +1,35 @@
+
+bundle "test" {
+
+    timeunit "second" {
+
+        symbol = s
+        name[pt-BR] = segundo
+    }
+}
+
+
+Primitives:
+    - boolean
+    - integer
+    - decimal
+    - string
+    - module
+    - class
+    - descriptor (describes the class)
+    - attribute (describes the instance)
+    - qualifier
+
+module core {
+    class hero {
+        
+    }
+}
+
+
+import core.*;
+
+hero {
+    name = ""
+}
+

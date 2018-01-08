@@ -2,7 +2,9 @@
 # Index
 
 
-# Type system and library structure
+## Type system and library structure
+
+TODO Revise all this stuff. Got new ideas.
 
 The type system is based on single inheritance from a common class
 called **Entity**. This class provides basic functions that will be used to
@@ -171,4 +173,25 @@ mandatory.
   
   Traits:
   + Chapter
+
+
+
+## Some random ideas
+
+For the type system and project organization:
+
+- Entities have Traits, that act as components in a component-based design
+- Each entity type has its own page or form in the app, that may be styled differently depending on the platform
+- Each trait type MAY have its own web-component section (most of the time, a form) in the app
+- Each property in a trait has its own web-widget (most of the time, a pair of label and web-control)
+- Each value type has its own web-control (e.g. text input for strings, datepickers for dates)
+- Entities can inherit from ONE other entity. The derived entity will have all of its parents' traits, transitively
+- Traits can inherit from ONE other entity. The derived trait will have all of its parents' properties, transitively
+- An entity may have one or more instances, each one with their unique ID in the project
+- An entity instance may be based on another one; in such a case, the base instance is called a "meta-instance"
+- If a property is unchanged in a derived instance, the value of that property will be that of its meta-instance
+- Entities, traits and instances are grouped in projects
+- When a project is used as a dependency of another, it's called a "bundle"
+- Each project in the workspace will have its own grouping menu in the navigation sidebar
+- Each entity type will have its own sub-item in its bundle
 
