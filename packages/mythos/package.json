@@ -1,7 +1,7 @@
 {
   "name": "mythos",
   "version": "0.1.0",
-  "description": "API entrypoint for Mythos, the extensible story planner.",
+  "description": "Mythos, the extensible story planner.",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {

@@ -31,18 +31,20 @@ function gulpPrepare(gulp, options) {
                 "json": "./dist/docs.json",
                 "readme": "README.md",
                 "exclude": "\"**/{dist,node_modules/@types}/**/*\"",
-                "externalPattern": "\"**/node_modules/@types/**/*.ts\"",
+                // "externalPattern": "\"**/node_modules/@types/**/*.ts\"",
                 "includeDeclarations": true,
                 "ignoreCompilerErrors": true,
                 "excludePrivate": true,
                 "excludeExternals": false,
                 "excludeNotExported": true
-            }
+            };
+            this.tsProject = tsProject;
         }
 
         allTargets(options) {
             options = options || {};
             options.except = options.except || [];
+            if (typeof options.except === 'string') options.except = [options.except];
 
             if (!options.except.includes('default')) this.defaultTargets();
             if (!options.except.includes('build:src')) this.buildSrcTarget();
@@ -59,9 +61,7 @@ function gulpPrepare(gulp, options) {
 
             gulp.task("build:src", function () {
                 return tsProject.src()
-                    .pipe(gulpDebug())
                     .pipe(tsProject(ts.reporter.longReporter()))
-                    .pipe(gulpDebug())
                     .pipe(gulp.dest("."));
             });
         }
@@ -69,7 +69,7 @@ function gulpPrepare(gulp, options) {
         buildDocsTarget() {
 
             gulp.task("build:docs", () => {
-                return gulp.src("src/index.ts")
+                return tsProject.src()
                     .pipe(typedoc(this.typedocConfig));
             });
         }

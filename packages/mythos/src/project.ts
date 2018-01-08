@@ -1,3 +1,7 @@
+/**
+ * @module mythos
+ * @internal
+ */ /* */
 
 import { IProject } from 'mythos-api'
 
