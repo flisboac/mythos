@@ -5,7 +5,7 @@
 
 
 import { IType, IObject } from './object'
-import { ITranslatableState, ILanguageName } from './language'
+import { ITranslatableState, ILangName } from './language'
 import { ITranslatable } from './language';
 
 

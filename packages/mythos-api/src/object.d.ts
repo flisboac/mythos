@@ -60,13 +60,12 @@ export interface IType extends INamedProjectComponent, IDocumented {
 
     readonly supertype: IType; // (Single) Inheritance, if any
     readonly parent: IType | IProject; // As in container type, e.g. where is it defined?
+    readonly optionsType: ITypeOptions;
     id: IId;
     description: IStringBox;
 
     isInstance(object: any): boolean;
     isAssignableFrom(otherType: IType): boolean;
-    
-    extend(id: IId, options?: ITypeOptions): IType;
     wrap(value: IObject | IBox<IObject>): IBox<IObject>;
 }
 

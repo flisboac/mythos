@@ -3,7 +3,8 @@
  * @internal
  */ /** */
 
-import { IObject, IType, IId } from './object'
+import { IObject, IType, IId, IUuidData, ITypeOptions } from './object'
+import { ICollection, ISearchableCollection } from './collection';
 import { IModelObject } from './modelObject'
 import { IValueType } from './box'
 import { ITrait } from './trait'
@@ -11,9 +12,6 @@ import { IEntity, IEntityType } from './entity'
 import { IConnection, IConnectionType } from './connection'
 import { IUuid } from './index';
 
-export declare const enum IEnumValues { A }
-export declare interface Enum {}
-export type IEnum = IEnumValues | Enum;
 
 export type IProjectVersion = string | {
     major: number,
@@ -23,50 +21,24 @@ export type IProjectVersion = string | {
     toString(): string;
 };
 
-export type IProjectSearchOptions = {
+export interface IProjectSearchOptions {
     recursive: boolean,
     dependencies: boolean
 }
 
-export interface IProjectDependencies extends Iterable<IProject> {
+export interface IProjectDependencies extends ICollection<IProject, IId> {}
 
-    readonly size: number;
+export interface IProjectTypes extends ISearchableCollection<IType, IId, IProjectSearchOptions> {
 
-    ids(): IId[];
-
-    get(id: string): IProject;
-
-    find(id: string): IProject | null;
-    find(id: (project: IProject) => boolean): IProject | null;
-}
-
-export interface IProjectTypes extends Iterable<IType> {
-
-    readonly size: number;
-
-    ids(options?: IProjectSearchOptions): IId[];
     valueTypes(options?: IProjectSearchOptions): IValueType<any>[];
     entities(options?: IProjectSearchOptions): IEntityType[];
     connections(options?: IProjectSearchOptions): IConnectionType[];
-
-    get(id: IId, options?: IProjectSearchOptions): IType;
-
-    find(id: IId, options?: IProjectSearchOptions): IType | null;
-    find(id: (type: IType) => boolean, options?: IProjectSearchOptions): IType | null;
 }
 
-export interface IProjectModel extends Iterable<IModelObject> {
+export interface IProjectModel extends ISearchableCollection<IModelObject, IId | IUuid, IProjectSearchOptions> {
 
-    readonly size: number;
-
-    ids(options?: IProjectSearchOptions): IId[];
     entities(options?: IProjectSearchOptions): IEntity[];
     connections(options?: IProjectSearchOptions): IConnection[];
-
-    get(id: IId | IUuid, options?: IProjectSearchOptions): IModelObject;
-
-    find(id: IId | IUuid, options?: IProjectSearchOptions): IModelObject | null;
-    find(id: (type: IModelObject) => boolean, options?: IProjectSearchOptions): IModelObject | null;
 }
 
 export interface IProjectInfo {
@@ -85,6 +57,8 @@ export interface IProject {
     readonly model: IProjectModel;
 
     readonly closed: boolean;
+
+    extend<T extends IType>(type: T, options?: ITypeOptions): T;
 
     close(): void;
 }

@@ -9,12 +9,22 @@ import { IBox } from './box';
 import { IEntity } from './entity';
 
 
+export const enum IConnectionArity {
+    ONE = 0, MANY = -1
+}
+
+export const enum IConnectionUniqueness {
+    NONE,
+    ORIGIN,
+    PAIR
+}
+
 export interface IConnectionType extends IModelType {
 
     id: IId;
     reverseId?: IId;
-    arity: "one" | "many" | number;
-    uniqueness: "origin" | "pair" | "none";
+    arity: IConnectionArity;
+    uniqueness: IConnectionUniqueness;
     
     readonly bidirectional: boolean;
 }

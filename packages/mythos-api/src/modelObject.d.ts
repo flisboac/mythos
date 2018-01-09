@@ -4,21 +4,19 @@
  */ /** */
 
 import { IType, INamedProjectComponent, IUuidProjectComponent, IId, ITypeOptions } from './object';
-import { IBox } from './box';
+import { IBox, IValueType } from './box';
 import { IStringBox } from './value/index';
 import { ITrait } from './trait';
 
 
 export type IModelTypeOptions = ITypeOptions & {}
 
-export interface IModelType extends IType {
+export interface IModelType<
+    ModelObjectType extends IModelObject = IModelObject,
+    BoxType extends IModelObjectBox<ModelObjectType> = IModelObjectBox<ModelObjectType>>
+extends IValueType<ModelObjectType, BoxType> {
 
     readonly traits: ITrait[];
-
-    extend(id: IId, options?: IModelTypeOptions): IModelType;
-    wrap(value: IModelObject | IModelObjectBox): IModelObjectBox;
-
-    newTrait(id: IId): ITrait;
 }
 
 export interface IModelObject 

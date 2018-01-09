@@ -22,3 +22,5 @@ export interface IStringBox extends IBox<string> {
 
     readonly type: IStringValueType;
 }
+
+export type IStringValue = string | IStringBox;
