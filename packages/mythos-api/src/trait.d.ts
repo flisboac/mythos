@@ -3,9 +3,11 @@
  * @internal
  */ /** */
 
-import { IType, INamedProjectComponent, IId } from './object';
-import { IBox, IValueType } from './box';
-import { IStringBox } from './value/index';
+
+import { IId } from './id';
+import { INamedProjectComponent } from './object';
+import { IBox, IType } from './type';
+import { IStringBox } from './value/string';
 import { IProperty, IPropertyType } from './property';
 
 
@@ -16,12 +18,12 @@ export interface ITraitType extends IType {
     readonly properties: IProperty[];
 
     newProperty<T>(
-        id: IId, 
-        options?: {
-            displayName?: IStringBox, 
-            type: IValueType<T>, 
-            defaultValue?: T
-        }
+            id: IId, 
+            options?: {
+                    displayName?: IStringBox, 
+                    type: IType<T>, 
+                    defaultValue?: T
+            }
     ): IPropertyType<T>;
 }
 

@@ -3,12 +3,12 @@
  * @internal
  */ /** */
 
+
 import { ITranslatable, ITranslatableState } from '../language';
-import { IBox, IValueType } from '../box';
+import { IBox, IType } from '../type';
 
 
-// Renders a spinner
-export interface IStringValueType extends IValueType<string>, ITranslatableState, ITranslatable<string> {
+export interface IStringValueType extends IType<string>, ITranslatableState, ITranslatable<string> {
 
     multiline: boolean | number; // Determines if will be rendered as input text or textarea
     renderType: "plain" | "email" | "url" | "markdown" | "html" | "custom";
@@ -20,7 +20,7 @@ export interface IStringValueType extends IValueType<string>, ITranslatableState
 
 export interface IStringBox extends IBox<string> {
 
-    readonly type: IStringValueType;
+        readonly type: IStringValueType;
 }
 
 export type IStringValue = string | IStringBox;

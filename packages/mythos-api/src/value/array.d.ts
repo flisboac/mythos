@@ -3,11 +3,11 @@
  * @internal
  */ /** */
 
-import { IType } from '../object'
-import { IBox, IValueType } from '../box';
+
+import { IBox, IType } from '../type';
 
 
-export interface IArrayValueType<ValueType extends IType> extends IValueType<Array<ValueType>> {
+export interface IArrayValueType<ValueType extends IType> extends IType<Array<ValueType>> {
 
     valueType: ValueType;
     minimumSize?: number;

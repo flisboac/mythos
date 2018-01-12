@@ -1,15 +1,18 @@
+
 /**
  * @module Mythos API/
  * @internal
  */ /** */
 
 export * from './language';
+export * from './collection';
+export * from './id';
 
+export * from './type';
 export * from './object';
-export * from './modelObject';
+export * from './value';
 
-export * from './box';
-export * from './value/index';
+export * from './modelObject';
 export * from './property';
 export * from './trait';
 

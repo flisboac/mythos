@@ -3,14 +3,16 @@
  * @internal
  */ /** */
 
-import { IObject, IType, IId, IUuidData, ITypeOptions } from './object'
+
+import { IId, IUuidData } from './id';
+import { IType, ITypeOptions } from './type';
+import { IObject } from './object';
 import { ICollection, ISearchableCollection } from './collection';
-import { IModelObject } from './modelObject'
-import { IValueType } from './box'
-import { ITrait } from './trait'
-import { IEntity, IEntityType } from './entity'
-import { IConnection, IConnectionType } from './connection'
-import { IUuid } from './index';
+import { IModelObject } from './modelObject';
+import { ITrait } from './trait';
+import { IEntity, IEntityType } from './entity';
+import { IConnection, IConnectionType } from './connection';
+import { IUuid } from './id';
 
 
 export type IProjectVersion = string | {
@@ -30,7 +32,7 @@ export interface IProjectDependencies extends ICollection<IProject, IId> {}
 
 export interface IProjectTypes extends ISearchableCollection<IType, IId, IProjectSearchOptions> {
 
-    valueTypes(options?: IProjectSearchOptions): IValueType<any>[];
+    fieldTypes(options?: IProjectSearchOptions): IType<any>[];
     entities(options?: IProjectSearchOptions): IEntityType[];
     connections(options?: IProjectSearchOptions): IConnectionType[];
 }
@@ -58,7 +60,7 @@ export interface IProject {
 
     readonly closed: boolean;
 
-    extend<T extends IType>(type: T, options?: ITypeOptions): T;
+    newType<T extends IType>(type: T, options?: ITypeOptions): T;
 
     close(): void;
 }

@@ -3,9 +3,8 @@
  * @internal
  */ /** */
 
-import { IObject, IId, IUuid } from './object';
-import { IEntity } from './entity';
-import { IConnection } from './connection';
+
+import { IId, IUuid } from './id';
 import { IProject, IBuiltinsProject } from './project';
 import { ISearchableCollection, ICollection } from './collection';
 
@@ -24,4 +23,4 @@ export interface IWorkspace {
     open(idOrName: IId): IProject;
 }
 
-export declare function openWorkspace(location?: string): IWorkspace;
+export function openWorkspace(location?: string): IWorkspace;

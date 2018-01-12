@@ -3,15 +3,16 @@
  * @internal
  */ /** */
 
-import { IBox, IValueType } from '../box';
 
-export interface IBooleanValueType extends IValueType<boolean> {
+import { IBox, IType } from '../type';
 
-    defaultIndeterminate: boolean;
+export interface IBooleanValueType extends IType<boolean> {
+
+        defaultIndeterminate: boolean;
 }
 
 export interface IBooleanBox extends IBox<boolean> {
 
-    readonly type: IBooleanValueType;
-    indeterminate: boolean;
+        readonly type: IBooleanValueType;
+        indeterminate: boolean;
 }

@@ -3,9 +3,10 @@
  * @internal
  */ /** */
 
+
 import { IModelType, IModelObject } from './modelObject';
-import { IId } from './object';
-import { IBox } from './box';
+import { IId } from './id';
+import { IBox } from './type';
 import { IEntity } from './entity';
 
 
@@ -25,7 +26,7 @@ export interface IConnectionType extends IModelType {
     reverseId?: IId;
     arity: IConnectionArity;
     uniqueness: IConnectionUniqueness;
-    
+
     readonly bidirectional: boolean;
 }
 
@@ -34,7 +35,7 @@ export interface IConnection extends IModelObject {
     readonly type: IConnectionType;
     readonly from: IEntity;
     readonly to: IEntity[];
-    
+
     connect(to: IEntity | IEntity[]): void;
 }
 

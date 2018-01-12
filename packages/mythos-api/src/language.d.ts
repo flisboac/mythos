@@ -25,7 +25,7 @@ export interface ILanguageAware {
 export interface ITranslatable<TranslationType> extends ILanguageAware {
 
     // VIEW INTERFACE
-    
+
     translate(langName: ILangName): TranslationType;
 }
 

@@ -3,10 +3,9 @@
  * @internal
  */ /** */
 
-import { IBox, IValueType } from '../box';
+import { IBox, IType } from '../type';
 
-// Renders a spinner
-export interface INumberValueType extends IValueType<number> {
+export interface INumberValueType extends IType<number> {
 
     integer: boolean;
     imprecise: boolean;

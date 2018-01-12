@@ -1,12 +1,15 @@
+
 /**
  * @module Mythos API/Property
  * @internal
  */ /** */
 
+
+import { IId } from './id';
 import { IModelType, IModelObject } from './modelObject';
-import { IType, INamedProjectComponent, IId } from './object';
-import { IBox, IValueType } from './box';
-import { IStringBox } from './value/index';
+import { INamedProjectComponent } from './object';
+import { IBox, IType } from './type';
+import { IStringBox } from './value/string';
 import { ITranslatableState, ITranslatable } from './language';
 import { ITrait } from './trait';
 
@@ -17,7 +20,7 @@ export interface IPropertyType<
 
     id: IId;
     description: IStringBox;
-    valueType: IValueType<RawType>;
+    valueType: IType<RawType>;
     defaultValue: IBox<RawType> | undefined;
 }
 

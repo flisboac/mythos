@@ -3,7 +3,7 @@
  * @internal
  */ /** */
 
-import { IBox, IValueType } from '../box';
+import { IBox, IType } from '../type';
 
 
 export interface IImageFile {} // TODO
